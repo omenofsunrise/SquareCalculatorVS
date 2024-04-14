@@ -4,42 +4,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SquareCalculatorlibrary;
+using System.Diagnostics;
 
 class UnitTests
     { 
-    static void Main(string[] args)
+    public static void TestCalculateCircleArea()
     {
-        while (true) 
-        {
-            Console.WriteLine("Choose form of figure to calculate square \n1)Circle \n2)Triangle");
-            switch (Console.ReadLine()) 
-            {
-                case "1":
-                    Console.WriteLine("write radius of circle");
-                    double radius = Convert.ToDouble(Console.ReadLine());
-                    double result = SquareCalculator.CalculateCircleArea(radius);
-                    Console.WriteLine($"Square of circle is {result}");
-                    break;
-                case "2":
-                    {
-                        Console.WriteLine("enter A side");
-                        double A = Convert.ToDouble(Console.ReadLine());
-                        Console.WriteLine("enter B side");
-                        double B = Convert.ToDouble(Console.ReadLine());
-                        Console.WriteLine("enter C side");
-                        double C = Convert.ToDouble(Console.ReadLine());
-                        double square = SquareCalculator.CalculateTriangleSquare(C, A, B);
-                        bool rightAngles = SquareCalculator.IsTriangleRightAngles(C, A, B);
-                        Console.WriteLine($"The square is {square}. Triangle is right angles - {rightAngles}");
-                        break;
-                    }
-                default:
-                    {
-                        Console.WriteLine("Wrong choose");
-                        break;
-                    }
-            }
+        double actual;
+        double expected = 1;
 
-        }
+        actual = SquareCalculator.CalculateCircleArea(1);
+        Debug.Assert(expected == actual, "an arror in CalculateCircleArea function");
+    }
+    
+    public static void TestCalculateTriangleSquare()
+    {
+        double actual;
+        double expected = 1;
+
+        actual = SquareCalculator.CalculateTriangleSquare(1, 1, 1);
+        Debug.Assert(expected == actual, "an arror in CalculateTriangleSquare function");
+    }
+
+    public static void TestIsTriangleRightAngles()
+    {
+        bool actual;
+        bool expected = true;
+
+        actual = SquareCalculator.IsTriangleRightAngles(3, 5, 4);
+        Debug.Assert(expected == actual, "an arror in IsTriangleRightAngles function");
     }
 }
