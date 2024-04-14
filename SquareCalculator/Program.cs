@@ -1,3 +1,1 @@
-﻿UnitTests.TestCalculateTriangleSquare();
-UnitTests.TestIsTriangleRightAngles();
-UnitTests.TestCalculateCircleArea();
+﻿static void Main(string[] args) { }
